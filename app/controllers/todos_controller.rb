@@ -27,6 +27,17 @@ class TodosController < ApplicationController
 
   def update
     @todos = Todo.find(params[:id])
+    if @todos.update(todos_params)
+      redirect_to root_path
+    else
+      redirect_to edit_todo_path
+    end
+  end
+
+  def destroy
+    @todos = Todo.find(params[:id])
+    @todos.destroy
+    redirect_to root_path, notice:'El registro se a eliminado con exito'
   end
 
 

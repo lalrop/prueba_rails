@@ -10,8 +10,11 @@
               <% @todos.each do |t| %>
             <ul>
               <%= t.description %>
+              <%= t.completed %>
               <%= link_to 'MOSTRAR', todo_path(t) %>
               <%= link_to 'EDITAR', edit_todo_path(t) %>
+              <%= link_to 'ELIMINAR', delete_todo_path(t) %>
+
               <% end %>
             </ul>
         </div>
