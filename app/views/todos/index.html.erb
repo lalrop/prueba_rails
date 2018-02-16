@@ -1,0 +1,23 @@
+<div class="container">
+  <%= notice %>
+  <h1>INDEX!!!</h1>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">ToDo's</h5>
+              <% @todos.each do |t| %>
+            <ul>
+              <%= t.description %>
+              <%= link_to 'MOSTRAR', todo_path(t) %>
+              <%= link_to 'EDITAR', edit_todo_path(t) %>
+              <% end %>
+            </ul>
+        </div>
+      </div>
+    </div>
+
+  <br>
+  <div><%= link_to 'Crear ToDo', todos_new_path %></div>
+</div>
