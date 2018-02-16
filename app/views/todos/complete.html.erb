@@ -1,0 +1,6 @@
+<h3>Fue completado???</h3>
+<%= form_with(model:@todos, local:true) do |form| %>
+<%= form.label :completado %>
+<%= form.check_box :completed  %>
+<%= form.submit :Enviar %>
+<% end %>

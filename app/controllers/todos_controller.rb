@@ -1,4 +1,6 @@
 class TodosController < ApplicationController
+    validates :description, presence:true
+  
   def index
     @todos = Todo.all
   end
@@ -10,9 +12,9 @@ class TodosController < ApplicationController
   def create
     @todos = Todo.new(todos_params)
     if @todos.save
-      redirect_to todos_path,                notice:'se ha creado un nuevo ToDo'
+      redirect_to todos_path,                notice:'Se ha creado un nuevo ToDo'
     else
-      redirect_to todos_new_path,            notice:'no se ha creado un nuevo Todo'
+      redirect_to todos_new_path,            notice:'No se ha creado un nuevo Todo'
     end
   end
 
@@ -37,9 +39,16 @@ class TodosController < ApplicationController
   def destroy
     @todos = Todo.find(params[:id])
     @todos.destroy
-    redirect_to root_path, notice:'El registro se a eliminado con exito'
+    redirect_to todos_path, notice:'El registro se a eliminado con exito'
   end
 
+  def completed
+    @todos = Todo.find(params[:id])
+  end
+
+  def list
+    @todos = Todo.all
+  end
 
 private
   def todos_params

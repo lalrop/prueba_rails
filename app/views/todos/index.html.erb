@@ -1,5 +1,5 @@
 <div class="container">
-  <%= notice %>
+  <h3><%= notice %></h2>
   <h1>INDEX!!!</h1>
 
   <div class="row">
@@ -13,7 +13,8 @@
               <%= t.completed %>
               <%= link_to 'MOSTRAR', todo_path(t) %>
               <%= link_to 'EDITAR', edit_todo_path(t) %>
-              <%= link_to 'ELIMINAR', delete_todo_path(t) %>
+              <%= link_to 'ELIMINAR', delete_todo_path(t), method: :delete %>
+              <%= link_to 'COMPLETAR', completed_todo_path(t) %>
 
               <% end %>
             </ul>
