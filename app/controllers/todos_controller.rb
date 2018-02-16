@@ -1,6 +1,5 @@
 class TodosController < ApplicationController
-    validates :description, presence:true
-  
+    
   def index
     @todos = Todo.all
   end
